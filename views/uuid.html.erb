@@ -1,0 +1,9 @@
+<% unless @msg.nil? %>
+  <%= @msg %>
+  <br>
+<% end %>
+<% if @url.nil? || @url.empty? %>
+  UUID:  <a href="/uuid?uuid=<%= @uuid %>"><%= @uuid %></a>
+<% else %>
+  Link: <a href="<%= @url %>">Link to image on imgur</a>
+<% end %>

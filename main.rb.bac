@@ -1,0 +1,40 @@
+require 'json'
+require 'sinatra'
+require 'sinatra/json'
+
+require 'sinatra/reloader' if development?
+
+class Main
+
+  def root()
+      "This is root get"
+  end
+
+  def test(params)
+    "This is test get with params #{params.map{ |t|
+      "#{t.first} -> #{t.last}"
+    }.join(', ')}"
+  end
+
+  def test_post(params)
+    content_type :json
+    params.to_json
+  end
+
+end
+
+m = Main.new
+
+get '/' do
+  m.root
+end
+
+get '/test' do
+  m.test(params)
+end
+
+post '/test' do
+
+  json params
+end
+

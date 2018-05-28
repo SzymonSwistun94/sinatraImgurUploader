@@ -1,0 +1,10 @@
+<http>
+  <head></head>
+  <body>
+  <% if @file.nil? %>
+    Resource not found
+  <% else %>
+    <%= erb @file.to_sym %>
+  <% end %>
+  </body>
+</http>
